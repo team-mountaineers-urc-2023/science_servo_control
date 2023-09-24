@@ -1,0 +1,36 @@
+<launch>
+	<arg name="linear_actuator_service" default="/move_linear_actuator"/>
+	<arg name="pump_service" default="/move_pump"/>
+	<arg name="scoop_sample_service" default="/scoop_sample"/>
+	<arg name="mix_sample_service" default="/mix_sample"/>
+	<arg name="seal_drum_service" default="/seal_drum"/>
+	<arg name="free_move_drum_service" default="/free_move_drum"/>
+	<arg name="move_cuvette_service" default="/move_cuvette"/>
+	<arg name="spin_centrifuge_service" default="/spin_centrifuge"/>
+	<arg name="write_gpio_service" default="/gpio"/>
+	<arg name="read_drum_position_service" default="/read_drum_position"/>
+	<arg name="reboot_drum_service" default="/reboot_drum"/>
+	<arg name="pre_seal_drum_service" default="/pre_seal_drum"/>
+	<arg name="pre_mix_drum_service" default="/pre_mix_drum"/>
+	<arg name="raise_linear_actuator_service" default="/raise_linear_actuator"/>
+	<arg name="lower_linear_actuator_service" default="/lower_linear_actuator"/>
+
+	<node pkg="science_servo_control" name="sci_servos"
+	type="sci_servo_control.py" output="screen" respawn="false">
+		<param name="linear_actuator_service" value="$(arg linear_actuator_service)"/>
+		<param name="pump_service" value="$(arg pump_service)"/>
+		<param name="scoop_sample_service" value="$(arg scoop_sample_service)"/>
+		<param name="mix_sample_service" value="$(arg mix_sample_service)"/>
+		<param name="seal_drum_service" value="$(arg seal_drum_service)"/>
+		<param name="free_move_drum_service" value="$(arg free_move_drum_service)"/>
+		<param name="move_cuvette_service" value="$(arg move_cuvette_service)"/>
+		<param name="spin_centrifuge_service" value="$(arg spin_centrifuge_service)"/>
+		<param name="write_gpio_service" value="$(arg write_gpio_service)"/>
+		<param name="read_drum_position_service" value="$(arg read_drum_position_service)"/>
+		<param name="reboot_drum_service" value="$(arg reboot_drum_service)"/>
+		<param name="pre_seal_drum_service" value="$(arg pre_seal_drum_service)"/>
+		<param name="pre_mix_drum_service" value="$(arg pre_mix_drum_service)"/>
+		<param name="raise_linear_actuator_service" value="$(arg raise_linear_actuator_service)"/>
+		<param name="lower_linear_actuator_service" value="$(arg lower_linear_actuator_service)"/>
+	</node>
+</launch>
